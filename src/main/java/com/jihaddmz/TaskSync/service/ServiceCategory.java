@@ -1,6 +1,7 @@
 package com.jihaddmz.TaskSync.service;
 
 import com.jihaddmz.TaskSync.model.ModelCategory;
+import com.jihaddmz.TaskSync.model.ModelTask;
 import com.jihaddmz.TaskSync.model.ModelUser;
 import com.jihaddmz.TaskSync.repository.RepositoryCategory;
 import org.hibernate.validator.constraints.Length;
@@ -29,6 +30,10 @@ public class ServiceCategory {
 
     public ModelCategory save(ModelCategory category) {
         return repo.save(category);
+    }
+
+    public ModelCategory findByTask(ModelTask task) {
+        return repo.findByTasksContains(task);
     }
 
 

@@ -66,6 +66,10 @@ public class ServiceTask {
         if (modelTask.isEmpty()) {
             throw new NoSuchElementException("Task not found");
         }
+        ModelCategory modelCategory = serviceCategory.findByTask(modelTask.get());
+        modelCategory.getTasks().remove(modelTask.get());
+        serviceCategory.save(modelCategory);
+
         repo.delete(modelTask.get());
 
         return modelTask.get();

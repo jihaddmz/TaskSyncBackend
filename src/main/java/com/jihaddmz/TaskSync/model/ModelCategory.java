@@ -23,10 +23,10 @@ public class ModelCategory {
     private String title;
     private String icon;
 
-    @OneToMany(targetEntity = ModelTask.class, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = ModelTask.class)
     private List<ModelTask> tasks;
 
-    @ManyToOne(targetEntity = ModelUser.class)
+    @ManyToOne(targetEntity = ModelUser.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private ModelUser user;
 

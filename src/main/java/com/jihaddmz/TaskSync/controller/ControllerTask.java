@@ -32,9 +32,7 @@ public class ControllerTask {
     }
 
     @DeleteMapping("/{id}")
-    DtoStatusMessage deleteTask(@PathVariable int id) {
-        service.deleteTask(id);
-
-        return new DtoStatusMessage("Success", "Task deleted successfully");
+    ModelTask deleteTask(@PathVariable int id) {
+       return  service.deleteTask(id);
     }
 }
